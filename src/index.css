@@ -1,7 +1,6 @@
-
 *,
 *::after,
-*::before{
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@ button {
 }
 
 input,
-label{
+label {
   font: inherit;
 }
 
@@ -24,24 +23,24 @@ label{
   --_radius: 0.2em;
   --_tspeed_fast: 180ms;
   --_tspeed_slow: 300ms;
-  --_ttype_squish: cibuc-bezier(0.86, -0.1, 0.27, 1.15);
+  --_ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
 
-/* Light Mode */
+  /* Light Mode */
   --bg--light: var(--_hue) 30% 94%;
   --txt--light: var(--_hue) 40% 5%;
   --accent--light: var(--_hue) 55% 50%;
-  --accent1--light: var(--_hue) 10 80% 60%;
+  --accent1--light: 10 80% 60%;
   --muted--light: var(--_hue) 30% 99%;
-/* Dark Mode */
+  /* Dark Mode */
   --bg--dark: var(--_hue) 15% 10%;
   --txt--dark: var(--_hue) 30% 88%;
   --accent--dark: var(--_hue) 50% 50%;
-  --accent1--dark: var(--_hue) 10 55% 50%;
+  --accent1--dark: 10 55% 50%;
   --muted--dark: var(--_hue) 20% 4%;
 }
 
-@media(prefers-color-scheme:dark){
-  :root{
+@media (prefers-color-scheme: dark) {
+  :root {
     --bg: var(--bg--dark);
     --txt: var(--txt--dark);
     --accent: var(--accent--dark);
@@ -51,8 +50,8 @@ label{
   }
 }
 
-@media(prefers-color-scheme:light){
-  :root{
+@media (prefers-color-scheme: light) {
+  :root {
     --bg: var(--bg--light);
     --txt: var(--txt--light);
     --accent: var(--accent--light);
@@ -62,7 +61,7 @@ label{
   }
 }
 
-[color-scheme="dark"]{
+[color-scheme="dark"] {
   --bg: var(--bg--dark);
   --txt: var(--txt--dark);
   --accent: var(--accent--dark);
@@ -71,7 +70,7 @@ label{
   color-scheme: dark;
 }
 
-[color-scheme="light"]{
+[color-scheme="light"] {
   --bg: var(--bg--light);
   --txt: var(--txt--light);
   --accent: var(--accent--light);
@@ -81,24 +80,25 @@ label{
 }
 
 @media screen and (max-width: 768px) {
-  :root{
+  :root {
     --_size: 1.3rem;
   }
 }
 
-/* prefers reduced motion  */
+/* prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  :root{
+  :root {
     --_tspeed_slow: 50ms;
     --_tspeed_fast: 50ms;
   }
 }
 
 body {
-  min-width: 100vh;
+  min-height: 100vh;
   display: grid;
   justify-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: hsl(var(--bg));
   color: hsl(var(--txt));
 }
@@ -108,7 +108,7 @@ body {
   color: hsl(var(--bg));
 }
 
-h1{
+h1 {
   font-size: calc(var(--_size) * 1.3);
   text-align: center;
 }
@@ -120,14 +120,14 @@ h1{
   text-align: center;
 }
 
-hr{
+hr {
   border: 0;
   height: 0.4em;
   background-color: hsl(var(--accent) / 0.5);
   border-radius: var(--_radius);
 }
 
-.btn{
+.btn {
   max-width: fit-content;
   display: flex;
   place-items: center;
@@ -137,22 +137,25 @@ hr{
   text-decoration: none;
   padding: 0.5em;
   border-radius: var(--_radius);
-  box-shadow: 0.05em 0.1em 0.9em hsl(var(--accent) / 0.3), 0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
-  transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish), background-color var(--_tspeed_fast) var(--_ttype_squish);
+  box-shadow: 0.05em 0.1em 0.9em hsl(var(--accent) / 0.3),
+    0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
+  transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish),
+    background-color var(--_tspeed_fast) var(--_ttype_squish);
 }
 
-.btn:where(svg, img, span){
+.btn :where(svg, img, span) {
   pointer-events: none;
 }
 
-.btn:where(svg, img){
+.btn :where(svg, img) {
   width: var(--_size);
   height: var(--_size);
 }
 
-.btn:where(:active, :hover){
+.btn:where(:active, :hover) {
   background-color: hsl(var(--accent) / 0.7);
-  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
+  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 -0.1em hsl(var(--bg)),
+    0 0 0 -0.2em hsl(var(--accent));
 }
 
 .btn:focus {
@@ -160,26 +163,28 @@ hr{
 }
 
 .btn:focus-visible {
-  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 0.2em hsl(var(--bg)), 0 0 0 0.4em hsl(var(--accent) / 0.7);
+  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 0.2em hsl(var(--bg)),
+    0 0 0 0.4em hsl(var(--accent) / 0.7);
 }
 
 .todo {
   display: flex;
-  gap: 0,5em;
+  gap: 0.5em;
   font-size: var(--_size);
   text-align: left;
 }
 
-.wrapper{
+.wrapper {
   flex: 1 1 100%;
   position: relative;
   display: grid;
   gap: 0.2em;
 }
 
-.label{
+.label {
   text-transform: uppercase;
   font-size: 0.7em;
+  pointer-events: none;
   letter-spacing: 0.05em;
   margin-inline: 0.45em;
   position: absolute;
@@ -187,7 +192,8 @@ hr{
   transform: translateY(-50%);
   padding: 0.1em 0.35em;
   background-color: hsl(var(--muted));
-  transition: transform var(--_tspeed_fast) var(--_ttype_squish), background-color var(--_tspeed_fast) var(--_ttype_squish);
+  transition: transform var(--_tspeed_fast) var(--_ttype_squish),
+    background-color var(--_tspeed_fast) var(--_ttype_squish);
 }
 
 .input {
@@ -197,23 +203,23 @@ hr{
   width: 100%;
   background-color: hsl(var(--muted));
   caret-color: hsl(var(--accent));
-  box-shadow: 0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2 hsl(var(--accent) /0.8) ;
-  transition: transform var(--_tspeed_fast) var(--_ttype_squish);
+  box-shadow: 0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent) / 0.8);
+  transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish);
 }
 
-.input:focus{
+.input:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2em hsl(var(--bg)), 0 0 0 0.4 hsl(var(--accent) /0.8) ;
+  box-shadow: 0 0 0 0.2em hsl(var(--bg)), 0 0 0 0.4em hsl(var(--accent) / 0.8);
 }
 
 .input:focus~.label,
-.input:not(:placeholder-shown)~.label{
-  transform: translate3d(0, -0.3em, 0);
+.input:not(:placeholder-shown)~.label {
+  transform: translate3d(0, -3em, 0);
   background-color: hsl(var(--bg));
   color: hsl(var(--accent) / 0.8);
 }
 
-.input::placeholder{
+.input::placeholder {
   opacity: 0;
 }
 
@@ -227,12 +233,11 @@ hr{
   background-color: hsl(var(--bg) / 0.7);
 }
 
-
-[role="dialog"] .todo{
+[role="dialog"] .todo {
   max-width: 40ch;
   padding: 2em 1.3em 1.3em;
   background-color: hsl(var(--bg));
   border-radius: var(--_radius);
   border: 0.1em solid hsl(var(--accent) / 0.3);
-  box-shadow: 0 -1em 3em hsl(var(--muted)), 0 -1em 3em hsl(var(--accent)) / 0.2;
+  box-shadow: 0 -1em 3em hsl(var(--muted)), 0 1em 3em hsl(var(--accent) / 0.2);
 }

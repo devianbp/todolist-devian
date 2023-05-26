@@ -3,7 +3,7 @@ import { useState } from 'react';
 // library import
 import { PlusIcon } from '@heroicons/react/24/solid'
 
-const CostumForm = ({addTask}) => {
+const CostumForm = ({ addTask }) => {
     const[task, setTask] = useState("");
 
     const handleFormSumit = (e) =>{
@@ -44,7 +44,7 @@ const CostumForm = ({addTask}) => {
             type="submit"
 
             >
-            <PlusIcon width={25} height={45}/>
+            <PlusIcon />
             </button>
         </form>
     )

@@ -33,7 +33,7 @@ const TaskItem = ({task, deleteTask, toggleTask, enterEditMode}) => {
                 >
                     {task.name}
                     <p className={styles.checkmark}>
-                        <CheckIcon strokeWidth={8} width={20} height={40}/>
+                        <CheckIcon strokeWidth={2} width={20} height={20}/>
                     </p>
                 </label>
             </div>
