@@ -4,23 +4,23 @@ import { useEffect, useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
 const EditForm = ({editedTask, updateTask, closeEditMode}) => {
-    const[updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
+    const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
 
     useEffect(()=> {
         const closeModalIfEscaped = (e) => {
-            e.key == "Escape" && closeEditMode();
+            e.key === "Escape" && closeEditMode();
         }
 
-        window.addEventListener('keydown, closeModalIfEscaped')
+        window.addEventListener('keydown', closeModalIfEscaped)
 
         return () => {
-            window.removeEventListener('keydown, closeModalIfEescaped')
+            window.removeEventListener('keydown', closeModalIfEscaped)
         }
     }, [closeEditMode])
 
     const handleFormSumit = (e) =>{
         e.preventDefault();
-        updateTask({... editedTask, name: updatedTaskName})
+        updateTask({...editedTask, name: updatedTaskName})
     }
 
     return(
@@ -52,7 +52,7 @@ const EditForm = ({editedTask, updateTask, closeEditMode}) => {
             </div>
             <button 
             className="btn"
-            aria-label={'Confirm edited task to now read ${updatedTaskName}'}
+            aria-label={`Confirm edited task to now read ${updatedTaskName}`}
             type="submit"
             >
             <CheckIcon strokeWidth={2} width={10} height={10}/>
